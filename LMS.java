@@ -6,9 +6,9 @@ public class LMS{
     private JFrame frame;
     private JTextField studentNameField, rollNoField;
     private JComboBox<String> branchComboBox;
-    private JRadioButton mathRadioButton, scienceRadioButton, literatureRadioButton;
+    private JRadioButton sub1RadioButton, sub2RadioButton, sub3RadioButton;
     private JComboBox<String> authorComboBox;
-    private JCheckBox fictionCheckBox, nonFictionCheckBox;
+    private JCheckBox plCheckBox, nonplCheckBox;
     private JButton submitButton;
     private JTextArea outputTextArea;
 
@@ -62,20 +62,20 @@ public class LMS{
 
         JLabel subjectLabel = new JLabel("Subject:");
         ButtonGroup subjectGroup = new ButtonGroup();
-        mathRadioButton = new JRadioButton("JAVA");
-        scienceRadioButton = new JRadioButton("Computer Networks");
-        literatureRadioButton = new JRadioButton("Artificial Intelligence");
-        subjectGroup.add(mathRadioButton);
-        subjectGroup.add(scienceRadioButton);
-        subjectGroup.add(literatureRadioButton);
+        sub1RadioButton = new JRadioButton("JAVA");
+        sub2RadioButton = new JRadioButton("Computer Networks");
+        sub3RadioButton = new JRadioButton("Artificial Intelligence");
+        subjectGroup.add(sub1RadioButton);
+        subjectGroup.add(sub2RadioButton);
+        subjectGroup.add(sub3RadioButton);
 
         JLabel authorLabel = new JLabel("Author:");
         String[] authors = {"Herbert schildt", "GrawGill", "Morgann"};
         authorComboBox = new JComboBox<>(authors);
 
         JLabel bookLabel = new JLabel("Books:");
-        fictionCheckBox = new JCheckBox("Programming Languages");
-        nonFictionCheckBox = new JCheckBox("Non-Programming languages");
+        plCheckBox = new JCheckBox("Programming Languages");
+        nonplCheckBox = new JCheckBox("Non-Programming languages");
 
         submitButton = new JButton("Submit");
         submitButton.addActionListener(new ActionListener() {
@@ -85,17 +85,17 @@ public class LMS{
         });
 
         panel.add(subjectLabel);
-        panel.add(mathRadioButton);
+        panel.add(sub1RadioButton);
         panel.add(new JLabel()); // Empty cell
-        panel.add(scienceRadioButton);
+        panel.add(sub2RadioButton);
         panel.add(new JLabel()); // Empty cell
-        panel.add(literatureRadioButton);
+        panel.add(sub3RadioButton);
         panel.add(authorLabel);
         panel.add(authorComboBox);
         panel.add(bookLabel);
-        panel.add(fictionCheckBox);
+        panel.add(plCheckBox);
         panel.add(new JLabel()); // Empty cell
-        panel.add(nonFictionCheckBox);
+        panel.add(nonplCheckBox);
         panel.add(submitButton);
 
         return panel;
@@ -107,22 +107,22 @@ public class LMS{
         String branch = (String) branchComboBox.getSelectedItem();
 
         String subject = "";
-        if (mathRadioButton.isSelected()) {
-            subject = "Math";
-        } else if (scienceRadioButton.isSelected()) {
-            subject = "Science";
-        } else if (literatureRadioButton.isSelected()) {
-            subject = "Literature";
+        if (sub1RadioButton.isSelected()) {
+            subject = "Java";
+        } else if (sub2RadioButton.isSelected()) {
+            subject = "Computer Networks";
+        } else if (sub3RadioButton.isSelected()) {
+            subject = "Artificial Intelligence";
         }
 
         String author = (String) authorComboBox.getSelectedItem();
 
         StringBuilder books = new StringBuilder();
         if (fictionCheckBox.isSelected()) {
-            books.append("Fiction, ");
+            books.append("Programming Languages,");
         }
         if (nonFictionCheckBox.isSelected()) {
-            books.append("Non-Fiction");
+            books.append("Non-Programming Languages");
         }
 
         String details = "Student Name: " + studentName + "\n"
