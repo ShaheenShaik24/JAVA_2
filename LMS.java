@@ -118,10 +118,10 @@ public class LMS{
         String author = (String) authorComboBox.getSelectedItem();
 
         StringBuilder books = new StringBuilder();
-        if (fictionCheckBox.isSelected()) {
+        if (plCheckBox.isSelected()) {
             books.append("Programming Languages,");
         }
-        if (nonFictionCheckBox.isSelected()) {
+        if (nonplCheckBox.isSelected()) {
             books.append("Non-Programming Languages");
         }
 
